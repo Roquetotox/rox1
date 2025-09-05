@@ -1,0 +1,127 @@
+body {
+    background-color: #fce4ec; /* Rosado muy clarito */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 90%;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    color: #e91e63; /* Rosado intenso */
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s, padding 0.3s, font-size 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 100px;
+    min-height: 50px;
+}
+
+#siBtn {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+#noBtn {
+    background-color: #f44336; /* Rojo */
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para los corazones que flotan */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    animation: floatUp 10s infinite ease-in-out;
+    opacity: 0;
+    border-radius: 50% 50% 0 50%;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Estilo para el mensaje final con corazones */
+#pregunta.final-message::before, #pregunta.final-message::after {
+    content: ' 🤍'; /* Un corazón rojo para acompañar el texto */
+    color: #e91e63;
+}
